@@ -3,14 +3,32 @@
 
 import { useState } from "react";
 
-function Feeling ({feeling, color}){
-    const [feelingState, setFeelingState] = useState(
-        {
-            feeling, 
-            color, 
-            isBold: false
-        }
+function Feeling ({feeling}){
+    const [feelingState, setFeelingState] = useState({...feeling})
+
+    function onFeelingClick() {
+        setFeelingState((prevState) => ({
+          ...prevState,
+          isBold: !prevState.isBold,
+        }));
+    }
+
+    return (
+        <div 
+            className={`Feeling-${feelingState.feeling}`}
+            style={{ 
+                fontWeight: feelingState.isBold ? 'bold' : 'normal', 
+                background: feeling.color,
+                cursor:'pointer',
+                fontSize:'4vw',
+                userSelect: 'none',
+            }}
+            onClick={onFeelingClick}
+        >
+            {feelingState.feeling}
+        </div>
     )
+
 }
 
 export default Feeling;
