@@ -12,7 +12,7 @@ function Feeling ({feeling}){
           isBold: !prevState.isBold,
         }));
     }
-    
+
     return (
         <div 
             className={`Feeling-${feelingState.feeling}`}
@@ -20,8 +20,9 @@ function Feeling ({feeling}){
                 fontWeight: feelingState.isBold ? 'bold' : 'normal', 
                 background: feeling.color,
                 cursor:'pointer',
-                fontSize:'4vw',
+                marginLeft:'20px',
                 userSelect: 'none',
+                width:'100px'
             }}
             onClick={onFeelingClick}
         >
