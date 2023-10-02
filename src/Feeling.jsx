@@ -12,7 +12,7 @@ function Feeling ({feeling}){
           isBold: !prevState.isBold,
         }));
     }
-
+    
     return (
         <div 
             className={`Feeling-${feelingState.feeling}`}
