@@ -2,8 +2,9 @@
 // What color it is, what ring it's in, and its bolded status
 
 import { useState } from "react";
+import './Feeling.css'
 
-function Feeling ({feeling}){
+function Feeling ({feeling, rotation}){
     const [feelingState, setFeelingState] = useState({...feeling})
 
     function onFeelingClick() {
@@ -15,14 +16,11 @@ function Feeling ({feeling}){
 
     return (
         <div 
-            className={`Feeling-${feelingState.feeling}`}
+            className={`Feeling ${feelingState.feeling}`}
             style={{ 
                 fontWeight: feelingState.isBold ? 'bold' : 'normal', 
                 background: feeling.color,
-                cursor:'pointer',
-                marginLeft:'20px',
-                userSelect: 'none',
-                width:'100px'
+                rotate: rotation
             }}
             onClick={onFeelingClick}
         >

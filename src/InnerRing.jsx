@@ -12,17 +12,6 @@ function InnerRing() {
     { feeling: "Sad", color: "red", isBold: false },
   ];
 
-  const angle = (2 * Math.PI) / innerWords.length;
-
-  const radius = 40;
-  function calcLeft(i){
-    return `${radius * Math.cos(angle * i) + 50}%`
-  }
-
-  function calcTop(i){
-    return `${radius * Math.sin(angle * i) + 50}%`
-  }
-
   function calcRotation(i){
     return `${360 * (i/innerWords.length)}deg`
   }
@@ -30,19 +19,7 @@ function InnerRing() {
   return(
     <div className='InnerRing'>
       {innerWords.map((feeling, index) => (
-        <div
-          key={feeling.feeling}
-          style={{
-            position: 'absolute',
-            left: '100px',
-            top: '100px',
-            // marginLeft:'50px',
-            rotate: calcRotation(index),
-            transformOrigin:'top left'
-          }}
-        >
-          <Feeling feeling={feeling} />
-        </div>
+          <Feeling key={feeling.feeling} feeling={feeling} rotation={calcRotation(index)}/>
       ))}
     </div>
   )

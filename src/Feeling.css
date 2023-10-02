@@ -1,0 +1,11 @@
+.Feeling {
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  transform-origin: top left;
+  cursor: pointer;
+  user-select: none;
+  width: 85px;
+  display: flex;
+  flex-direction: row-reverse;
+}
