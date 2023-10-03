@@ -6,7 +6,7 @@ import './Wheel.css'
 function Wheel() {
   return (
     <div className="Wheel">
-      {/* <OuterRing /> */}
+      <OuterRing />
       <MiddleRing />
       <InnerRing />
     </div>

@@ -55,10 +55,6 @@ function InnerRing() {
     setIsDragging(() => false);
   }
 
-  function calcRotation(i) {
-    return `${360 * (i / innerWords.length)}deg`;
-  }
-
   return (
     <div
       className="InnerRing"
