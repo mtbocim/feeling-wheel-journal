@@ -2,7 +2,13 @@ import Feeling from "./Feeling";
 import "./OuterRing.css";
 
 function OuterRing(){
-    const outerWords = [
+  const colors = {
+    bad:'#0bbb0b',
+    fearful:'#0099ff',
+    angry:'#945d94'
+  }  
+  
+  const outerWords = [
         { feeling: "Aroused", color: "orange", isBold: false },
         { feeling: "Cheeky", color: "orange", isBold: false },
         { feeling: "Free", color: "orange", isBold: false },
@@ -29,42 +35,42 @@ function OuterRing(){
         { feeling: "Awe", color: "yellow", isBold: false },
         { feeling: "Eager", color: "yellow", isBold: false },
         { feeling: "Energetic", color: "yellow", isBold: false },
-        { feeling: "Indifferent", color: "green", isBold: false },
-        { feeling: "Apathetic", color: "green", isBold: false },
-        { feeling: "Pressured", color: "green", isBold: false },
-        { feeling: "Rushed", color: "green", isBold: false },
-        { feeling: "Overwhelmed", color: "green", isBold: false },
-        { feeling: "Out of Control", color: "green", isBold: false },
-        { feeling: "Sleepy", color: "green", isBold: false },
-        { feeling: "Unfocused", color: "green", isBold: false },
-        { feeling: "Helpless", color: "#0099ff", isBold: false },
-        { feeling: "Frightened", color: "#0099ff", isBold: false },
-        { feeling: "Overwhelmed", color: "#0099ff", isBold: false },
-        { feeling: "Worried", color: "#0099ff", isBold: false },
-        { feeling: "Inadequate", color: "#0099ff", isBold: false },
-        { feeling: "Inferior", color: "#0099ff", isBold: false },
-        { feeling: "Worthless", color: "#0099ff", isBold: false },
-        { feeling: "Insignificant", color: "#0099ff", isBold: false },
-        { feeling: "Excluded", color: "#0099ff", isBold: false },
-        { feeling: "Persecuted", color: "#0099ff", isBold: false },
-        { feeling: "Nervous", color: "#0099ff", isBold: false },
-        { feeling: "Exposed", color: "#0099ff", isBold: false },
-        { feeling: "Betrayed", color: "purple", isBold: false },
-        { feeling: "Disrespected", color: "purple", isBold: false },
-        { feeling: "Disrespected", color: "purple", isBold: false },
-        { feeling: "Ridiculed", color: "purple", isBold: false },
-        { feeling: "Indignant", color: "purple", isBold: false },
-        { feeling: "Violated", color: "purple", isBold: false },
-        { feeling: "Furious", color: "purple", isBold: false },
-        { feeling: "Jealous", color: "purple", isBold: false },
-        { feeling: "Provoked", color: "purple", isBold: false },
-        { feeling: "Hostile", color: "purple", isBold: false },
-        { feeling: "Infuriated", color: "purple", isBold: false },
-        { feeling: "Annoyed", color: "purple", isBold: false },
-        { feeling: "Withdrawn", color: "purple", isBold: false },
-        { feeling: "Numb", color: "purple", isBold: false },
-        { feeling: "Sceptical", color: "purple", isBold: false },
-        { feeling: "Dismissive", color: "purple", isBold: false },
+        { feeling: "Indifferent", color: colors.bad, isBold: false },
+        { feeling: "Apathetic", color: colors.bad, isBold: false },
+        { feeling: "Pressured", color: colors.bad, isBold: false },
+        { feeling: "Rushed", color: colors.bad, isBold: false },
+        { feeling: "Overwhelmed", color: colors.bad, isBold: false },
+        { feeling: "Out of Control", color: colors.bad, isBold: false },
+        { feeling: "Sleepy", color: colors.bad, isBold: false },
+        { feeling: "Unfocused", color: colors.bad, isBold: false },
+        { feeling: "Helpless", color: colors.fearful, isBold: false },
+        { feeling: "Frightened", color: colors.fearful, isBold: false },
+        { feeling: "Overwhelmed", color: colors.fearful, isBold: false },
+        { feeling: "Worried", color: colors.fearful, isBold: false },
+        { feeling: "Inadequate", color: colors.fearful, isBold: false },
+        { feeling: "Inferior", color: colors.fearful, isBold: false },
+        { feeling: "Worthless", color: colors.fearful, isBold: false },
+        { feeling: "Insignificant", color: colors.fearful, isBold: false },
+        { feeling: "Excluded", color: colors.fearful, isBold: false },
+        { feeling: "Persecuted", color: colors.fearful, isBold: false },
+        { feeling: "Nervous", color: colors.fearful, isBold: false },
+        { feeling: "Exposed", color: colors.fearful, isBold: false },
+        { feeling: "Betrayed", color: colors.angry, isBold: false },
+        { feeling: "Resentful", color: colors.angry, isBold: false },
+        { feeling: "Disrespected", color: colors.angry, isBold: false },
+        { feeling: "Ridiculed", color: colors.angry, isBold: false },
+        { feeling: "Indignant", color: colors.angry, isBold: false },
+        { feeling: "Violated", color: colors.angry, isBold: false },
+        { feeling: "Furious", color: colors.angry, isBold: false },
+        { feeling: "Jealous", color: colors.angry, isBold: false },
+        { feeling: "Provoked", color: colors.angry, isBold: false },
+        { feeling: "Hostile", color: colors.angry, isBold: false },
+        { feeling: "Infuriated", color: colors.angry, isBold: false },
+        { feeling: "Annoyed", color: colors.angry, isBold: false },
+        { feeling: "Withdrawn", color: colors.angry, isBold: false },
+        { feeling: "Numb", color: colors.angry, isBold: false },
+        { feeling: "Sceptical", color: colors.angry, isBold: false },
+        { feeling: "Dismissive", color: colors.angry, isBold: false },
         { feeling: "Judgemental", color: "lavender", isBold: false },
         { feeling: "Embarrassed", color: "lavender", isBold: false },
         { feeling: "Appalled", color: "lavender", isBold: false },
@@ -94,7 +100,7 @@ function OuterRing(){
         <div className="OuterRing">
         {outerWords.map((feeling, index) => (
           <Feeling
-            key={feeling.feeling}
+            key={`${feeling.feeling}${feeling.color}`}
             feeling={feeling}
             rotation={calcRotation(index)}
           />

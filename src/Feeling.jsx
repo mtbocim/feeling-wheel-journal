@@ -5,7 +5,8 @@ import { useState } from "react";
 import './Feeling.css'
 
 function Feeling ({feeling, rotation}){
-    const [feelingState, setFeelingState] = useState({...feeling})
+    const [feelingState, setFeelingState] = useState({...feeling});
+    const [mouseOver, setMouseOver] = useState(false);
 
     function onFeelingClick() {
         setFeelingState((prevState) => ({
@@ -23,8 +24,9 @@ function Feeling ({feeling, rotation}){
                 rotate: rotation
             }}
             onClick={onFeelingClick}
+            // onMouseOver={}
         >
-            {feelingState.feeling}
+            <text>{feelingState.feeling}</text>
         </div>
     )
 
