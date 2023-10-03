@@ -26,7 +26,7 @@ function Feeling ({feeling, rotation}){
             onClick={onFeelingClick}
             // onMouseOver={}
         >
-            <text>{feelingState.feeling}</text>
+            <div className='Feeling-text'>{feelingState.feeling}</div>
         </div>
     )
 

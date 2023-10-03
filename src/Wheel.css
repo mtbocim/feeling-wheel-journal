@@ -1,11 +1,83 @@
 .Wheel {
-  width:95vh;
-  height:95vh;
-  border: 2px solid black;
+  width: 85vh;
+  height: 85vh;
+  /* border: 2px solid black; */
   border-radius: 50%;
-  margin-top: 5vh;
+  margin-top: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.Wheel-center {
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  background-color: black;
+  position: absolute;
+  z-index: 20;
+}
+
+.Wheel-sad{
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  background-color: rgb(187, 54, 54);
+  position: absolute;
+  left:80vh;
+  top: 18.5vh;
+}
+.Wheel-disgusted{
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  background-color: rgb(159, 172, 176);
+  position: absolute;
+  left: 54vh;
+  top: -4vh;
+}
+.Wheel-angry{
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  background-color: rgb(126, 92, 162);
+  position: absolute;
+  left:17vh;
+  top: 0vh;
+}
+.Wheel-fearful{
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  background-color: rgb(54, 138, 187);
+  position: absolute;
+  left:-5vh;
+  top: 45vh;
+}
+.Wheel-bad{
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  background-color: rgb(54, 187, 107);
+  position: absolute;
+  left: 11vh;
+  top: 75vh;
+}
+.Wheel-surprised{
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  background-color: rgb(231, 234, 49);
+  position: absolute;
+  left:36vh;
+  top: 85.5vh;
+}
+.Wheel-happy{
+  width: 5vh;
+  height: 5vh;
+  border-radius: 50%;
+  background-color: rgb(234, 175, 49);
+  position: absolute;
+  left:76vh;
+  top: 69vh;
+}

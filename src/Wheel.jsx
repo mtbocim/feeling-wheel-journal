@@ -3,65 +3,60 @@ import MiddleRing from "./MiddleRing";
 import OuterRing from "./OuterRing";
 import "./Wheel.css";
 
-import { useState, useRef } from "react";
+import React, { useState } from "react";
 
 function Wheel() {
-  const [isDragging, setIsDragging] = useState(false);
+
   const [rotation, setRotation] = useState(0);
-  const initialRotation = useRef(0);
-  const initialMousePosition = useRef({ x: 0, y: 0 });
 
-  function handleMouseDown(e) {
-    setIsDragging(() => true);
-    initialRotation.current = rotation;
-    initialMousePosition.current = { x: e.clientX, y: e.clientY };
+  function setWheelRotation(val){
+    // TODO: fix rotation snap taking 'long' path
+    setRotation((prev)=>val);
   }
 
-  function handleMouseMove(e) {
-    /* 
-    x y means clockwise
-    x -y means counter
-    -x y means
-    -x -y
-    */
-
-    if (isDragging) {
-      console.log(e.target.getBoundingClientRect());
-      const { left, top, width, height } = e.target.getBoundingClientRect();
-      const centerX = left + width / 2;
-      const centerY = top + height / 2;
-      const deltaX = e.clientX - initialMousePosition.current.x;
-      const deltaY = e.clientY - initialMousePosition.current.y;
-      const angle = Math.atan2(deltaY, deltaX);
-      const newRotation = angle * (180 / Math.PI) + initialRotation.current;
-      setRotation(() => newRotation);
-    }
-  }
-
-  function handleMouseUp() {
-    setIsDragging(() => false);
-  }
-
-  function handleMouseLeave() {
-    setIsDragging(() => false);
-  }
-  
   return (
-    <div
-      className="Wheel"
-      onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        cursor: "grab",
-        transform: `rotate(${rotation}deg)`,
-        transition: "transform 0.1s ease",
-      }}
-    >
-      <OuterRing />
-      <MiddleRing />
-      <InnerRing />
+    <div className="Wheel-container">
+      <div
+        className="Wheel"
+        style={{
+          cursor: "grab",
+          transform: `rotate(${rotation}deg)`,
+          transition: "transform 0.5s ease",
+        }}
+      >
+        <OuterRing />
+        <MiddleRing />
+        <InnerRing />
+        <div className="Wheel-center" />
+        <div
+          className="Wheel-sad"
+          onMouseDown={()=>setWheelRotation(31)}
+        ></div>
+        <div
+          className="Wheel-disgusted"
+          onMouseDown={()=>setWheelRotation(75)}
+        ></div>
+        <div
+          className="Wheel-angry"
+          onMouseDown={()=>setWheelRotation(125)}
+        ></div>
+        <div
+          className="Wheel-fearful"
+          onMouseDown={()=>setWheelRotation(189)}
+        ></div>
+        <div
+          className="Wheel-bad"
+          onMouseDown={()=>setWheelRotation(232)}
+        ></div>
+        <div
+          className="Wheel-surprised"
+          onMouseDown={()=>setWheelRotation(268)}
+        ></div>
+        <div
+          className="Wheel-happy"
+          onMouseDown={()=>setWheelRotation(325)}
+        ></div>
+      </div>
     </div>
   );
 }
