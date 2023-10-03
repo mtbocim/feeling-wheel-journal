@@ -1,11 +1,10 @@
 /* InnerRing.css */
 
-.InnerRing{
-    position: relative;
-    width: 200px;
-    height: 200px; 
-    margin: 100px;
-    border: 2px solid black;
-    border-radius: 50%;
-    transform-origin: top left;
+.InnerRing {
+  position: absolute;
+  width: 30vh;
+  height: 30vh;
+  border: 2px solid black;
+  border-radius: 50%;
+  z-index: 10;
 }

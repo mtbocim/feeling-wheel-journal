@@ -2,7 +2,7 @@ import './App.css';
 import Wheel from './Wheel'
 function App() {
   return (
-   <div className="container">
+   <div className="App">
       <Wheel/>
    </div>
   );

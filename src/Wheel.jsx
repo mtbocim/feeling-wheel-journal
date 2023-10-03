@@ -1,13 +1,14 @@
 import InnerRing from "./InnerRing";
 import MiddleRing from "./MiddleRing";
 import OuterRing from "./OuterRing";
+import './Wheel.css'
 
 function Wheel() {
   return (
     <div className="Wheel">
-      <InnerRing />
+      {/* <OuterRing /> */}
       <MiddleRing />
-      <OuterRing />
+      <InnerRing />
     </div>
   );
 }
