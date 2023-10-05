@@ -10,8 +10,8 @@
 }
 
 .Wheel-center {
-  width: 5vh;
-  height: 5vh;
+  width: 2vh;
+  height: 2vh;
   border-radius: 50%;
   background-color: black;
   position: absolute;

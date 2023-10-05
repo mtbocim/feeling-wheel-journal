@@ -6,12 +6,25 @@ import "./Wheel.css";
 import React, { useState } from "react";
 
 function Wheel() {
+  const [rotationAngle, setRotationAngle] = useState(0);
+  console.log("What is rotationAngle", rotationAngle);
+  function setWheelRotation(val) {
+    // TODO: fix rotationAngle snap taking 'long' path
+    // 30 -> 325 = change of 295 or 65
+    // UPDATE: Better snapping, need to test
+    /*
+    rotation angle = current orientation
+    val = desired orientation
+    scenario: 359 - 1
+    moving backward to 1 is 358 degrees
+    moving forward to 361 is 2 degrees
 
-  const [rotation, setRotation] = useState(0);
 
-  function setWheelRotation(val){
-    // TODO: fix rotation snap taking 'long' path
-    setRotation((prev)=>val);
+    */
+
+    const shortest =
+      360 + val - rotationAngle < rotationAngle - val ? 360 + val : val;
+    setRotationAngle(() => shortest);
   }
 
   return (
@@ -20,7 +33,7 @@ function Wheel() {
         className="Wheel"
         style={{
           cursor: "grab",
-          transform: `rotate(${rotation}deg)`,
+          transform: `rotate(${rotationAngle}deg)`,
           transition: "transform 0.5s ease",
         }}
       >
@@ -30,31 +43,31 @@ function Wheel() {
         <div className="Wheel-center" />
         <div
           className="Wheel-sad"
-          onMouseDown={()=>setWheelRotation(31)}
+          onMouseDown={() => setWheelRotation(31)}
         ></div>
         <div
           className="Wheel-disgusted"
-          onMouseDown={()=>setWheelRotation(75)}
+          onMouseDown={() => setWheelRotation(75)}
         ></div>
         <div
           className="Wheel-angry"
-          onMouseDown={()=>setWheelRotation(125)}
+          onMouseDown={() => setWheelRotation(125)}
         ></div>
         <div
           className="Wheel-fearful"
-          onMouseDown={()=>setWheelRotation(189)}
+          onMouseDown={() => setWheelRotation(189)}
         ></div>
         <div
           className="Wheel-bad"
-          onMouseDown={()=>setWheelRotation(232)}
+          onMouseDown={() => setWheelRotation(232)}
         ></div>
         <div
           className="Wheel-surprised"
-          onMouseDown={()=>setWheelRotation(268)}
+          onMouseDown={() => setWheelRotation(268)}
         ></div>
         <div
           className="Wheel-happy"
-          onMouseDown={()=>setWheelRotation(325)}
+          onMouseDown={() => setWheelRotation(325)}
         ></div>
       </div>
     </div>
