@@ -6,25 +6,18 @@ import "./Wheel.css";
 import React, { useState } from "react";
 
 function Wheel() {
-  const [rotationAngle, setRotationAngle] = useState(0);
-  console.log("What is rotationAngle", rotationAngle);
-  function setWheelRotation(val) {
-    // TODO: fix rotationAngle snap taking 'long' path
-    // 30 -> 325 = change of 295 or 65
-    // UPDATE: Better snapping, need to test
-    /*
-    rotation angle = current orientation
-    val = desired orientation
-    scenario: 359 - 1
-    moving backward to 1 is 358 degrees
-    moving forward to 361 is 2 degrees
+  const [currentAngle, setCurrentAngle] = useState(325);
+  console.log("What is rotationAngle", currentAngle);
+  function setWheelRotation(newAngle) {
 
+    const clockwise = (newAngle - currentAngle + 72000) % 360;
+    const counterClockwise = (currentAngle - newAngle + 72000) % 360;
 
-    */
-
-    const shortest =
-      360 + val - rotationAngle < rotationAngle - val ? 360 + val : val;
-    setRotationAngle(() => shortest);
+    if (clockwise < counterClockwise) {
+      setCurrentAngle(() => currentAngle + clockwise);
+    } else {
+      setCurrentAngle(() => currentAngle - counterClockwise);
+    }
   }
 
   return (
@@ -33,7 +26,7 @@ function Wheel() {
         className="Wheel"
         style={{
           cursor: "grab",
-          transform: `rotate(${rotationAngle}deg)`,
+          transform: `rotate(${currentAngle}deg)`,
           transition: "transform 0.5s ease",
         }}
       >
