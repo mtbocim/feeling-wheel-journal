@@ -1,6 +1,11 @@
-.Wheel-container{
+.Wheel-container {
   display: flex;
-  margin:7.5vh auto auto 5vw;
+  margin: 7.5vh auto auto 5vw;
+  /* border: 2px solid black; */
+  width: 80vh;
+  height: 80vh;
+  border-radius: 50%;
+  align-items: center;
 }
 
 .Wheel {
@@ -20,17 +25,76 @@
   position: absolute;
   z-index: 20;
 }
-
-.Wheel-sad{
-  width: 5vh;
-  height: 5vh;
-  border-radius: 50%;
-  background-color: rgb(187, 54, 54);
+.Wheel-rotation-container {
+  display: flex;
   position: absolute;
-  left:80vh;
-  top: 18.5vh;
+  width: 40vh;
+  height: 4vh;
+  left: 50%;
+  transform-origin: center left;
+  /* border: 2px solid black; */
+  flex-direction: row-reverse;
 }
-.Wheel-disgusted{
+.Wheel-rotation-container > div {
+  width: 10%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.rotation-sad {
+  rotate: 329deg;
+}
+
+.rotation-selector-sad {
+  background-color: rgb(187, 54, 54);
+}
+
+.rotation-disgusted {
+  rotate: 285deg;
+}
+
+.rotation-selector-disgusted {
+  background-color: rgb(159, 172, 176);
+}
+
+.rotation-angry {
+  rotate: 235deg;
+}
+
+.rotation-selector-angry {
+  background-color: rgb(126, 92, 162);
+}
+.rotation-fearful {
+  rotate: 171deg;
+}
+
+.rotation-selector-fearful {
+  background-color: rgb(54, 138, 187);
+}
+.rotation-bad {
+  rotate: 128deg;
+}
+
+.rotation-selector-bad {
+  background-color: rgb(54, 187, 107);
+}
+.rotation-surprised {
+  rotate: 92deg;
+}
+
+.rotation-selector-surprised {
+  background-color: rgb(231, 234, 49);
+}
+.rotation-happy {
+  rotate: 35deg;
+}
+
+.rotation-selector-happy {
+  background-color: rgb(234, 175, 49);
+}
+
+.Wheel-disgusted {
   width: 5vh;
   height: 5vh;
   border-radius: 50%;
@@ -39,25 +103,25 @@
   left: 54vh;
   top: -4vh;
 }
-.Wheel-angry{
+.Wheel-angry {
   width: 5vh;
   height: 5vh;
   border-radius: 50%;
   background-color: rgb(126, 92, 162);
   position: absolute;
-  left:17vh;
+  left: 17vh;
   top: 0vh;
 }
-.Wheel-fearful{
+.Wheel-fearful {
   width: 5vh;
   height: 5vh;
   border-radius: 50%;
   background-color: rgb(54, 138, 187);
   position: absolute;
-  left:-5vh;
+  left: -5vh;
   top: 45vh;
 }
-.Wheel-bad{
+.Wheel-bad {
   width: 5vh;
   height: 5vh;
   border-radius: 50%;
@@ -66,21 +130,21 @@
   left: 11vh;
   top: 75vh;
 }
-.Wheel-surprised{
+.Wheel-surprised {
   width: 5vh;
   height: 5vh;
   border-radius: 50%;
   background-color: rgb(231, 234, 49);
   position: absolute;
-  left:36vh;
+  left: 36vh;
   top: 85.5vh;
 }
-.Wheel-happy{
+.Wheel-happy {
   width: 5vh;
   height: 5vh;
   border-radius: 50%;
   background-color: rgb(234, 175, 49);
   position: absolute;
-  left:76vh;
+  left: 76vh;
   top: 69vh;
 }
