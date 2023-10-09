@@ -16,6 +16,7 @@ function Feeling ({feeling, rotation}){
             className={`Feeling ${feelingState.feeling}`}
             style={{ 
                 fontWeight: feelingState.isBold ? 'bold' : 'normal', 
+                fontSize : feelingState.isBold ? '1.5vh' : '1.25vh',
                 background: feeling.color,
                 rotate: rotation
             }}

@@ -4,7 +4,6 @@
   z-index: 2;
   top: 15vh;
   left: 15vh;
-  align-items: center;
   mix-blend-mode: multiply;
   
 }
@@ -26,6 +25,7 @@
 }
 
 .Feeling {
+  align-items: center;
   padding: 2px 15px 2px 0px;
   position: absolute;
   transform-origin: top left;
@@ -33,9 +33,7 @@
   user-select: none;
   display: flex;
   flex-direction: row-reverse;
-  font-size: 1.25vh;
   border-radius: 40px 25px 25px 40px;
-
 }
 
 .Feeling:hover:not(:active) {
@@ -43,7 +41,3 @@
   z-index: 15;
   transform: scale(1.15);
 }
-
-/* .Feeling:hover > text {
-  transform: scaleX(0.66);
-} */
