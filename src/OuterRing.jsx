@@ -69,7 +69,7 @@ function OuterRing(){
         { feeling: "Annoyed", color: colors.angry, isSelected: false },
         { feeling: "Withdrawn", color: colors.angry, isSelected: false },
         { feeling: "Numb", color: colors.angry, isSelected: false },
-        { feeling: "Sceptical", color: colors.angry, isSelected: false },
+        { feeling: "Skeptical", color: colors.angry, isSelected: false },
         { feeling: "Dismissive", color: colors.angry, isSelected: false },
         { feeling: "Judgemental", color: "lavender", isSelected: false },
         { feeling: "Embarrassed", color: "lavender", isSelected: false },
@@ -88,7 +88,7 @@ function OuterRing(){
         { feeling: "Powerless", color: "red", isSelected: false },
         { feeling: "Grief", color: "red", isSelected: false },
         { feeling: "Fragile", color: "red", isSelected: false },
-        { feeling: "Vicimised", color: "red", isSelected: false },
+        { feeling: "Victimised", color: "red", isSelected: false },
         { feeling: "Abandoned", color: "red", isSelected: false },
         { feeling: "Isolated", color: "red", isSelected: false },
     ];
