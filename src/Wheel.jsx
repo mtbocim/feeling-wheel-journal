@@ -30,8 +30,8 @@ function Wheel() {
           transition: "transform 0.5s ease",
         }}
       >
-        <OuterRing />
-        <MiddleRing />
+        {/* <OuterRing /> */}
+        {/* <MiddleRing /> */}
         <InnerRing />
         <div className="Wheel-center" />
         <div

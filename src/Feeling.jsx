@@ -7,7 +7,7 @@ function Feeling ({feeling, rotation}){
     function onFeelingClick() {
         setFeelingState((prevState) => ({
           ...prevState,
-          isBold: !prevState.isBold,
+          isSelected: !prevState.isSelected,
         }));
     }
 
@@ -15,8 +15,8 @@ function Feeling ({feeling, rotation}){
         <div 
             className={`Feeling ${feelingState.feeling}`}
             style={{ 
-                fontWeight: feelingState.isBold ? 'bold' : 'normal', 
-                fontSize : feelingState.isBold ? '1.5vh' : '1.25vh',
+                fontWeight: feelingState.isSelected ? 'bold' : 'normal', 
+                fontSize : feelingState.isSelected ? '1.5vh' : '1.25vh',
                 background: feeling.color,
                 rotate: rotation
             }}
