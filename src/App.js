@@ -8,20 +8,24 @@ function App() {
   const [colorCount, setColorCount] = useState({});
 
   function counter(feeling) {
-    setColorCount((prevColorCount) => {
-      const color = feeling.color;
-      const isSelected = feeling.isSelected;
-      const updatedColorCount = { ...prevColorCount };
+    if (feeling === "reset") {
+      setColorCount({});
+    } else {
+      setColorCount((prevColorCount) => {
+        const color = feeling.color;
+        const isSelected = feeling.isSelected;
+        const updatedColorCount = { ...prevColorCount };
 
-      updatedColorCount[color] =
-        (updatedColorCount[color] || 0) + (isSelected ? 1 : -1);
+        updatedColorCount[color] =
+          (updatedColorCount[color] || 0) + (isSelected ? 1 : -1);
 
-      if (updatedColorCount[color] === 0) {
-        delete updatedColorCount[color];
-      }
+        if (updatedColorCount[color] === 0) {
+          delete updatedColorCount[color];
+        }
 
-      return { ...updatedColorCount };
-    });
+        return { ...updatedColorCount };
+      });
+    }
   }
 
   function calculateGradient() {
@@ -48,6 +52,7 @@ function App() {
     }
     return `linear-gradient(to right, ${gradientStops.join(", ")})`;
   }
+
   return (
     <feelingContext.Provider value={counter}>
       <div className="App">

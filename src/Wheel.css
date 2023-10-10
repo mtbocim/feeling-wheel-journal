@@ -1,3 +1,7 @@
+.Wheel-reset{
+  height:80vh;
+}
+
 .Wheel-container {
   display: flex;
   margin: 7.5vh auto auto 5vw;
