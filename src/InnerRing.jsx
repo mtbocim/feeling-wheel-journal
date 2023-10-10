@@ -12,8 +12,7 @@ function InnerRing() {
     { feeling: "Sad", color: "red", isSelected: false },
   ];
 
-  const initialAngles = ['33deg', '90deg', '125deg', '170deg', '235deg', '285deg', '330deg']
-
+  const initialAngles = ['31deg', '90deg', '125deg', '170deg', '235deg', '285deg', '330deg']
 
   return (
     <div

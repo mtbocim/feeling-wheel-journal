@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import './Feeling.css'
+import feelingContext from "./feelingContext";
 
 function Feeling ({feeling, rotation}){
     const [feelingState, setFeelingState] = useState({...feeling});
+    const counter = useContext(feelingContext)
 
     function onFeelingClick() {
-        setFeelingState((prevState) => ({
-          ...prevState,
-          isSelected: !prevState.isSelected,
-        }));
+        feelingState.isSelected = !feelingState.isSelected;
+        setFeelingState({...feelingState});
+        counter(feelingState)
     }
 
     return (
