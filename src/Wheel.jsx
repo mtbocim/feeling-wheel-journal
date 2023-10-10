@@ -20,6 +20,8 @@ function Wheel() {
     }
   }
 
+  
+
   return (
       <div className="Wheel-container">
         <div
