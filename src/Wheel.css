@@ -28,16 +28,16 @@
 .Wheel-rotation-container {
   display: flex;
   position: absolute;
-  width: 40vh;
-  height: 4vh;
+  width: 42vh;
+  height: 4.2vh;
   left: 50%;
   transform-origin: center left;
   /* border: 2px solid black; */
   flex-direction: row-reverse;
 }
 .Wheel-rotation-container > div {
-  width: 10%;
   height: 100%;
+  width: 10%;
   border-radius: 50%;
   position: absolute;
 }

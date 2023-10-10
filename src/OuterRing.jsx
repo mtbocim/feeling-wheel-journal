@@ -4,8 +4,8 @@ import "./OuterRing.css";
 function OuterRing(){
   const colors = {
     bad:'green',
-    fearful:'blue',
-    angry:'purple',
+    fearful:'#7f7fff',
+    angry:'#b284b2',
     sad:'red',
     disgusted:'grey',
     surprised:'yellow',

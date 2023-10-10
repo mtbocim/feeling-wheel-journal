@@ -7,7 +7,7 @@ function InnerRing() {
     { feeling: "Surprised", color: "yellow", isSelected: false },
     { feeling: "Bad", color: "#0bbb0b", isSelected: false },
     { feeling: "Fearful", color: "#0099ff", isSelected: false },
-    { feeling: "Angry", color: "purple", isSelected: false },
+    { feeling: "Angry", color: "#b200b2", isSelected: false },
     { feeling: "Disgusted", color: "lavender", isSelected: false },
     { feeling: "Sad", color: "red", isSelected: false },
   ];

@@ -5,7 +5,7 @@ function MiddleRing() {
   const colors = {
     bad:"#66ff66",
     fearful:"#80ccff",
-    angry:"#6666ff",
+    angry:"#a266ff",
     sad:"#ff8566",
     disgusted:"#99bbff",
     surprised:"#ffff66",

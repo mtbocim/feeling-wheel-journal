@@ -39,5 +39,5 @@
 .Feeling:hover:not(:active) {
   font-size: 2.25vh;
   z-index: 15;
-  transform: scale(1.15);
+  transform: scale(1.05);
 }
