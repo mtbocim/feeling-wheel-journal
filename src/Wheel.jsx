@@ -1,7 +1,7 @@
 import InnerRing from "./InnerRing";
 import MiddleRing from "./MiddleRing";
 import OuterRing from "./OuterRing";
-import feelingContext from "./feelingContext";
+import journalContext from "./journalContext";
 
 import "./Wheel.css";
 
@@ -9,13 +9,27 @@ import React, { useState, useContext } from "react";
 
 import { innerWords, middleWords, outerWords } from "./feelingsData";
 
-function Wheel() {
-  const [currentAngle, setCurrentAngle] = useState(325);
-  const [innerState, setInnerState] = useState(innerWords);
-  const [middleState, setMiddleState] = useState(middleWords);
-  const [outerState, setOuterState] = useState(outerWords);
-  const counter = useContext(feelingContext);
+/**
+ * Wheel
+ * 
+ * State
+ * 
+ * Props
+ * 
+ * Wheel -> InnerRing
+ *       -> MiddleRing
+ *       -> OuterRing
+ */
 
+function Wheel({updateEntries, colorCount, entryData}) {
+  console.log("what is entryData", entryData)
+  const [currentAngle, setCurrentAngle] = useState(325);
+  const [innerState, setInnerState] = useState(entryData.innerState||innerWords);
+  const [middleState, setMiddleState] = useState(entryData.middleState||middleWords);
+  const [outerState, setOuterState] = useState(entryData.outerState||outerWords);
+  const counter = useContext(journalContext);
+ 
+  console.log("what is innerState", innerState)
   function setWheelRotation(newAngle) {
     const clockwise = (newAngle - currentAngle + 72000) % 360;
     const counterClockwise = (currentAngle - newAngle + 72000) % 360;
@@ -31,53 +45,60 @@ function Wheel() {
     setInnerState(() => innerWords);
     setMiddleState(() => middleWords);
     setOuterState(() => outerWords);
-    counter('reset')
+    counter("reset");
+  }
+  
+  // function loadWheel() {
+  //   setInnerState(() => entryData.innerState);
+  //   setMiddleState(() => entryData.middleState);
+  //   setOuterState(() => entryData.outerState);
+  // }
+
+  function updateFeeling(feeling, state, setState) {
+    const updatedFeelings = state.map((f) => {
+      if (f.feeling === feeling) {
+        const updatedF = { ...f, isSelected: !f.isSelected };
+        counter(updatedF);
+        return updatedF;
+      }
+      return f;
+    });
+    setState([...updatedFeelings]);
   }
 
   function updateInner(feeling) {
-    const updatedFeelings = innerState.map((f) => {
-      if (f.feeling === feeling) {
-        const updatedF = { ...f, isSelected: !f.isSelected };
-        counter(updatedF);
-        return updatedF;
-      }
-      return f;
-    });
-    setInnerState([...updatedFeelings]);
+    updateFeeling(feeling, innerState, setInnerState);
   }
+
   function updateMiddle(feeling) {
-    const updatedFeelings = middleState.map((f) => {
-      if (f.feeling === feeling) {
-        const updatedF = { ...f, isSelected: !f.isSelected };
-        counter(updatedF);
-        return updatedF;
-      }
-      return f;
-    });
-    setMiddleState([...updatedFeelings]);
+    updateFeeling(feeling, middleState, setMiddleState);
   }
 
   function updateOuter(feeling) {
-    const updatedFeelings = outerState.map((f) => {
-      if (f.feeling === feeling) {
-        const updatedF = { ...f, isSelected: !f.isSelected };
-        counter(updatedF);
-        return updatedF;
-      }
-      return f;
-    });
-    setOuterState([...updatedFeelings]);
+    updateFeeling(feeling, outerState, setOuterState);
+  }
+
+  function saveWheel() {
+    const time = new Date();
+    const savedState = {
+      innerState,
+      middleState,
+      outerState,
+      colorCount
+    };
+    localStorage.setItem(time.toISOString(), JSON.stringify(savedState));
+    updateEntries()
   }
 
   return (
     <div className="Wheel-container">
-      <div className="Wheel-reset">
+      <div className="Wheel-actions">
         <button onClick={resetWheel}>Reset</button>
+        <button onClick={saveWheel}>Save</button>
       </div>
       <div
         className="Wheel"
         style={{
-          cursor: "grab",
           transform: `rotate(${currentAngle}deg)`,
           transition: "transform 0.5s ease",
         }}

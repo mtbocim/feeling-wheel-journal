@@ -1,10 +1,13 @@
-.Wheel-reset{
+.Wheel-actions{
   height:80vh;
+  width:5vw;
+  display: flex;
+    flex-direction: column;
 }
 
 .Wheel-container {
   display: flex;
-  margin: 7.5vh auto auto 5vw;
+  margin: 7.5vh 5vw auto 5vw;
   /* border: 2px solid black; */
   width: 80vh;
   height: 80vh;

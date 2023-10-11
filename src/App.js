@@ -1,11 +1,30 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import Wheel from "./Wheel";
-import { useState } from "react";
+import Entries from "./Entries";
 import FeelingGradient from "./FeelingGradient";
-import feelingContext from "./feelingContext";
+import journalContext from "./journalContext";
+
+/**
+ * App
+ *
+ * State
+ *
+ * Props
+ *
+ * App -> Wheel
+ *     -> Entries
+ *     -> FeelingGradient
+ */
 
 function App() {
   const [colorCount, setColorCount] = useState({});
+  const [entries, setEntries] = useState([]);
+  const [entryData, setEntryData] = useState({});
+
+  useEffect(() => {
+    setEntries(Object.keys(localStorage));
+  }, [setEntries]);
 
   function counter(feeling) {
     if (feeling === "reset") {
@@ -52,14 +71,29 @@ function App() {
     }
     return `linear-gradient(to right, ${gradientStops.join(", ")})`;
   }
+  
+  function updateEntries() {
+    setEntries(() => Object.keys(localStorage));
+  }
 
+  function loadEntry(entry) {
+    const entryData = JSON.parse(localStorage.getItem(entry));
+
+    setEntryData(() => entryData);
+    setColorCount(() => entryData.colorCount);
+  }
   return (
-    <feelingContext.Provider value={counter}>
+    <journalContext.Provider value={counter}>
       <div className="App">
-        <Wheel />
+        <Wheel
+          entryData={entryData}
+          updateEntries={updateEntries}
+          colorCount={colorCount}
+        />
+        <Entries entries={entries} loadEntry={loadEntry} />
         <FeelingGradient gradient={calculateGradient()} />
       </div>
-    </feelingContext.Provider>
+    </journalContext.Provider>
   );
 }
 

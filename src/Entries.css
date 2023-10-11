@@ -1,0 +1,9 @@
+.Entries-container{
+    display: flex;
+    width: 20vw;
+    flex-direction: column;
+}
+.Entries-container > div{
+    margin:3px auto 3px;
+    cursor: pointer;
+}
