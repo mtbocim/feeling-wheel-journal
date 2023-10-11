@@ -5,7 +5,7 @@ import journalContext from "./journalContext";
 
 import "./Wheel.css";
 
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,useEffect } from "react";
 
 import { innerWords, middleWords, outerWords } from "./feelingsData";
 
@@ -30,6 +30,13 @@ function Wheel({updateEntries, colorCount, entryData}) {
   const counter = useContext(journalContext);
  
   console.log("what is innerState", innerState)
+
+  useEffect(() => {
+    setInnerState(entryData.innerState || innerWords);
+    setMiddleState(entryData.middleState || middleWords);
+    setOuterState(entryData.outerState || outerWords);
+  }, [entryData]);
+
   function setWheelRotation(newAngle) {
     const clockwise = (newAngle - currentAngle + 72000) % 360;
     const counterClockwise = (currentAngle - newAngle + 72000) % 360;
@@ -48,12 +55,6 @@ function Wheel({updateEntries, colorCount, entryData}) {
     counter("reset");
   }
   
-  // function loadWheel() {
-  //   setInnerState(() => entryData.innerState);
-  //   setMiddleState(() => entryData.middleState);
-  //   setOuterState(() => entryData.outerState);
-  // }
-
   function updateFeeling(feeling, state, setState) {
     const updatedFeelings = state.map((f) => {
       if (f.feeling === feeling) {
