@@ -4,6 +4,7 @@ import Wheel from "./Wheel";
 import Entries from "./Entries";
 import FeelingGradient from "./FeelingGradient";
 import journalContext from "./journalContext";
+import Footer from "./Footer";
 
 /**
  * App
@@ -92,6 +93,7 @@ function App() {
         />
         <Entries entries={entries} loadEntry={loadEntry} />
         <FeelingGradient gradient={calculateGradient()} />
+        <Footer/>
       </div>
     </journalContext.Provider>
   );
