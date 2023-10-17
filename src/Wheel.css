@@ -61,53 +61,30 @@
   rotate: 329deg;
 }
 
-.rotation-selector-sad {
-  background-color: rgb(187, 54, 54);
-}
-
 .rotation-disgusted {
   rotate: 290deg;
-}
-
-.rotation-selector-disgusted {
-  background-color: rgb(159, 172, 176);
 }
 
 .rotation-angry {
   rotate: 235deg;
 }
 
-.rotation-selector-angry {
-  background-color: rgb(126, 92, 162);
-}
 .rotation-fearful {
   rotate: 171deg;
 }
 
-.rotation-selector-fearful {
-  background-color: rgb(54, 138, 187);
-}
 .rotation-bad {
   rotate: 132deg;
 }
 
-.rotation-selector-bad {
-  background-color: rgb(54, 187, 107);
-}
 .rotation-surprised {
   rotate: 96deg;
 }
 
-.rotation-selector-surprised {
-  background-color: rgb(231, 234, 49);
-}
 .rotation-happy {
   rotate: 35deg;
 }
 
-.rotation-selector-happy {
-  background-color: rgb(234, 175, 49);
-}
 
 .Wheel-disgusted {
   width: 5vh;
