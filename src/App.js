@@ -22,6 +22,7 @@ function App() {
   const [entries, setEntries] = useState([]);
   const [entryData, setEntryData] = useState({});
 
+
   useEffect(() => {
     // Load entries from local storage when the component mounts
     const wheelEntries = JSON.parse(localStorage.getItem("wheelEntries"));
@@ -53,7 +54,8 @@ function App() {
 
   // Update the list of entries
   function updateEntries() {
-    setEntries(Object.keys(localStorage));
+    const entries = JSON.parse(loadEntry.getItem('wheelEntries'))||{}
+    setEntries(Object.keys(entries));
   }
 
   // Load entry data when an entry is selected
@@ -68,7 +70,7 @@ function App() {
     <journalContext.Provider value={counter}>
       <div className="App">
         <Wheel entryData={entryData} updateEntries={updateEntries} colorCount={colorCount} />
-        <Entries entries={entries} loadEntry={loadEntry} />
+        {/* <Entries entries={entries} loadEntry={loadEntry} /> */}
         <Footer />
       </div>
     </journalContext.Provider>
