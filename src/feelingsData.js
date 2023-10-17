@@ -1,22 +1,55 @@
+function lightenColor(color) {
+  // Parse the color value into its red, green, and blue components
+  const r = parseInt(color.slice(1, 3), 16);
+  const g = parseInt(color.slice(3, 5), 16);
+  const b = parseInt(color.slice(5, 7), 16);
+
+  // Calculate the new color components by adding 1/3 of the difference between the current value and 255
+  const newR = Math.min(r + (255 - r) / 3, 255);
+  const newG = Math.min(g + (255 - g) / 3, 255);
+  const newB = Math.min(b + (255 - b) / 3, 255);
+
+  // Convert the new components back to a hexadecimal color code
+  const newColor = `#${Math.round(newR).toString(16)}${Math.round(newG).toString(16)}${Math.round(newB).toString(16)}`;
+
+  return newColor;
+}
+
+const outerColors = {
+  happy: "#ff4500",
+  surprised: "#ffff00",
+  bad: "#0bbb0b",
+  fearful: "#0099ff",
+  angry: "#b200b2",
+  disgusted: "#e6e6fa",
+  sad: "#ff8566",
+}
+
+const middleColors = {};
+const innerColors = {};
+
+function makeColors(){
+  for(let key in outerColors){
+    middleColors[key] = lightenColor(outerColors[key])
+  }
+  for(let key in middleColors){
+    innerColors[key] = lightenColor(middleColors[key])
+  }
+}
+makeColors()
+
+
 export const innerWords = [
-   { feeling: "Happy", color: "orange", isSelected: false },
-   { feeling: "Surprised", color: "yellow", isSelected: false },
-   { feeling: "Bad", color: "#0bbb0b", isSelected: false },
-   { feeling: "Fearful", color: "#0099ff", isSelected: false },
-   { feeling: "Angry", color: "#b200b2", isSelected: false },
-   { feeling: "Disgusted", color: "lavender", isSelected: false },
-   { feeling: "Sad", color: "red", isSelected: false },
+   { feeling: "Happy", color: innerColors.happy, isSelected: false },
+   { feeling: "Surprised", color: innerColors.surprised, isSelected: false },
+   { feeling: "Bad", color: innerColors.bad, isSelected: false },
+   { feeling: "Fearful", color: innerColors.fearful, isSelected: false },
+   { feeling: "Angry", color: innerColors.angry, isSelected: false },
+   { feeling: "Disgusted", color: innerColors.disgusted, isSelected: false },
+   { feeling: "Sad", color: innerColors.sad, isSelected: false },
  ];
 
-const middleColors = {
-   bad: "#66ff66",
-   fearful: "#80ccff",
-   angry: "#a266ff",
-   sad: "#ff8566",
-   disgusted: "#99bbff",
-   surprised: "#ffff66",
-   happy: "#ffc978",
- };
+
  
  export const middleWords = [
    { feeling: "Playful", color: middleColors.happy, isSelected: false },
@@ -62,16 +95,7 @@ const middleColors = {
    { feeling: "Lonely", color: middleColors.sad, isSelected: false },
  ];
 
- const outerColors = {
-   bad: "green",
-   fearful: "#7f7fff",
-   angry: "#b284b2",
-   sad: "red",
-   disgusted: "grey",
-   surprised: "yellow",
-   happy: "orange",
- };
- 
+
  export const outerWords = [
    { feeling: "Aroused", color: outerColors.happy, isSelected: false },
    { feeling: "Cheeky", color: outerColors.happy, isSelected: false },
