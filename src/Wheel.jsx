@@ -323,6 +323,7 @@ function Wheel({ updateEntries, colorCount, entryData }) {
       localStorage.setItem("wheelData", JSON.stringify(currentData))
     }
   }
+  
   function saveWheel() {
     const time = new Date();
     const savedState = {
