@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Wheel from "./Wheel";
 import Entries from "./Entries";
-import FeelingGradient from "./FeelingGradient";
 import journalContext from "./journalContext";
 import Footer from "./Footer";
 
@@ -47,31 +46,6 @@ function App() {
       });
     }
   }
-
-  // function calculateGradient() {
-  //   let total = 0;
-  //   for (let key in colorCount) {
-  //     total += colorCount[key];
-  //   }
-  //   if (total === 0) {
-  //     return "white"; // Return white if total is 0
-  //   }
-  //   if (Object.keys(colorCount).length === 1) {
-  //     return Object.keys(colorCount)[0];
-  //   }
-
-  //   let gradientStops = [];
-  //   let current = 0;
-
-  //   for (let color in colorCount) {
-  //     const value = colorCount[color] / total;
-  //     if (value > 0) {
-  //       current += value;
-  //       gradientStops.push(`${color} ${current * 100}%`);
-  //     }
-  //   }
-  //   return `linear-gradient(to right, ${gradientStops.join(", ")})`;
-  // }
   
   function updateEntries() {
     setEntries(() => Object.keys(localStorage));
@@ -92,7 +66,6 @@ function App() {
           colorCount={colorCount}
         />
         <Entries entries={entries} loadEntry={loadEntry} />
-        {/* <FeelingGradient gradient={calculateGradient()} /> */}
         <Footer/>
       </div>
     </journalContext.Provider>
