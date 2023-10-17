@@ -21,7 +21,7 @@ const outerColors = {
   bad: "#0bbb0b",
   fearful: "#0099ff",
   angry: "#b200b2",
-  disgusted: "#e6e6fa",
+  disgusted: "#b5b5de",
   sad: "#ff8566",
 }
 
