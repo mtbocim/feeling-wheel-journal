@@ -23,7 +23,6 @@ import React, { useState, useContext, useEffect } from "react";
  */
 
 function Wheel({ updateEntries, colorCount, entryData }) {
-  console.log("what is entryData", entryData)
 
   function lightenColor(color) {
     // Parse the color value into its red, green, and blue components
@@ -60,7 +59,6 @@ function Wheel({ updateEntries, colorCount, entryData }) {
     sad: "#ff8566",
   })
 
-  console.log("what are the colors", outerColors.sad)
   const [middleColors, setMiddleColors] = useState(makeColors(outerColors))
   const [innerColors, setInnerColors] = useState(makeColors(middleColors))
 
@@ -323,7 +321,7 @@ function Wheel({ updateEntries, colorCount, entryData }) {
       localStorage.setItem("wheelData", JSON.stringify(currentData))
     }
   }
-  
+
   function saveWheel() {
     const time = new Date();
     const savedState = {

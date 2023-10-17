@@ -60,7 +60,6 @@ function App() {
 
   // Load entry data when an entry is selected
   function loadEntry(entry) {
-    console.log("entered loadEntry", entry)
     const entriesData = JSON.parse(localStorage.getItem('wheelEntries'));
 
     setEntryData(entriesData[entry]);

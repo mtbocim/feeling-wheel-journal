@@ -1,6 +1,5 @@
 function Entry({ entry, loadEntry }) {
   function loadPreviousEntry() {
-    console.log(entry);
     loadEntry(entry)
   }
 
