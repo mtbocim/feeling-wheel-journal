@@ -1,23 +1,31 @@
+.Wheel-actions-buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40%;
+}
 .Wheel-actions{
   height:80vh;
-  width:5vw;
+  width:7.5vw;
   display: flex;
     flex-direction: column;
+    margin-right: 1vw;
 }
 
 .Wheel-container {
   display: flex;
-  margin: 7.5vh 5vw auto 5vw;
+  margin: 2.5vh 1vw auto 1vw;
   /* border: 2px solid black; */
-  width: 80vh;
-  height: 80vh;
+  width: 50vw;
+  height: 85vh;
   border-radius: 50%;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .Wheel {
-  width: 85vh;
-  height: 85vh;
+  width: 40vw;
+  height: 75vh;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -35,8 +43,8 @@
 .Wheel-rotation-container {
   display: flex;
   position: absolute;
-  width: 42vh;
-  height: 4.2vh;
+  width: 20vw;
+  height: 2vw;
   left: 50%;
   transform-origin: center left;
   /* border: 2px solid black; */

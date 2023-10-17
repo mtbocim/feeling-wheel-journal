@@ -1,5 +1,5 @@
 .InnerRing .Feeling {
-  width: 10vh;
+  width: 5vw;
   height: 3vh;
   z-index: 2;
   top: 15vh;
@@ -9,7 +9,7 @@
 }
 
 .MiddleRing .Feeling {
-  width: 22vh;
+  width: 10vw;
   z-index: 1;
   top: 27.5vh;
   left: 27.5vh;
@@ -17,7 +17,7 @@
 }
 
 .OuterRing .Feeling {
-    width: 35vh;
+    width: 16vw;
     z-index: 0;
     top: 27.5vh;
     left: 27.5vh; 

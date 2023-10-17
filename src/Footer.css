@@ -1,6 +1,6 @@
-footer{
+.Footer {
     display: flex;
     width: 100vw;
-    /* align-items: center; */
+    margin-bottom: 0vh;
     justify-content: center;
 }
