@@ -49,8 +49,8 @@ function Wheel({ updateEntries, colorCount, entryData }) {
     }
     return colors;
   }
-
-  const [outerColors, setOuterColors] = useState({
+  const palletData = JSON.parse(localStorage.getItem("wheelData"));
+  const [outerColors, setOuterColors] = useState(palletData?.colorSet || {
     happy: "#ff4500",
     surprised: "#ffff00",
     bad: "#0bbb0b",
@@ -59,6 +59,8 @@ function Wheel({ updateEntries, colorCount, entryData }) {
     disgusted: "#b5b5de",
     sad: "#ff8566",
   })
+
+  console.log("what are the colors", outerColors.sad)
   const [middleColors, setMiddleColors] = useState(makeColors(outerColors))
   const [innerColors, setInnerColors] = useState(makeColors(middleColors))
 
@@ -287,32 +289,40 @@ function Wheel({ updateEntries, colorCount, entryData }) {
   function handleChange(feeling, color) {
     const newOuterColors = { ...outerColors, [feeling]: color };
     setOuterColors(newOuterColors);
-  
+
     const newMiddleColors = makeColors(newOuterColors);
     setMiddleColors(newMiddleColors);
-  
+
     const newInnerColors = makeColors(newMiddleColors);
     setInnerColors(newInnerColors);
-  
+
     const updatedOuterState = outerState.map((item) => ({
       ...item,
       color: item.parent === feeling ? color : item.color,
     }));
     setOuterState(updatedOuterState);
-  
+
     const updatedMiddleState = middleState.map((item) => ({
       ...item,
       color: item.parent === feeling ? newMiddleColors[feeling] : item.color,
     }));
     setMiddleState(updatedMiddleState);
-  
+
     const updatedInnerState = innerState.map((item) => ({
       ...item,
       color: item.feeling.toLowerCase() === feeling ? newInnerColors[feeling] : item.color,
     }));
     setInnerState(updatedInnerState);
   }
-
+  function savePallet() {
+    let currentData = JSON.parse(localStorage.getItem("wheelData"))
+    if (!currentData) {
+      localStorage.setItem("wheelData", JSON.stringify({ colorSet: outerColors }))
+    } else {
+      currentData.colorSet = outerColors;
+      localStorage.setItem("wheelData", JSON.stringify(currentData))
+    }
+  }
   function saveWheel() {
     const time = new Date();
     const savedState = {
@@ -342,7 +352,7 @@ function Wheel({ updateEntries, colorCount, entryData }) {
               </div>
             )
           })}
-
+          <button onClick={savePallet}>Save pallet</button>
         </div>
         <div className="Wheel-actions-buttons">
           <button onClick={resetWheel}>Reset</button>
@@ -365,7 +375,7 @@ function Wheel({ updateEntries, colorCount, entryData }) {
             className="rotation-selector-sad"
             onMouseDown={() => setWheelRotation(31)}
             style={{
-              background:outerColors.sad,
+              background: outerColors.sad,
             }}
           ></div>
         </div>
@@ -374,7 +384,7 @@ function Wheel({ updateEntries, colorCount, entryData }) {
             className="rotation-selector-disgusted"
             onMouseDown={() => setWheelRotation(75)}
             style={{
-              background:outerColors.disgusted,
+              background: outerColors.disgusted,
             }}
           ></div>
         </div>
@@ -383,7 +393,7 @@ function Wheel({ updateEntries, colorCount, entryData }) {
             className="rotation-selector-angry"
             onMouseDown={() => setWheelRotation(125)}
             style={{
-              background:outerColors.angry,
+              background: outerColors.angry,
             }}
           ></div>
         </div>
@@ -392,7 +402,7 @@ function Wheel({ updateEntries, colorCount, entryData }) {
             className="rotation-selector-fearful"
             onMouseDown={() => setWheelRotation(189)}
             style={{
-              background:outerColors.fearful,
+              background: outerColors.fearful,
             }}
           ></div>
         </div>
@@ -401,7 +411,7 @@ function Wheel({ updateEntries, colorCount, entryData }) {
             className="rotation-selector-bad"
             onMouseDown={() => setWheelRotation(232)}
             style={{
-              background:outerColors.bad,
+              background: outerColors.bad,
             }}
           ></div>
         </div>
@@ -410,7 +420,7 @@ function Wheel({ updateEntries, colorCount, entryData }) {
             className="rotation-selector-surprised"
             onMouseDown={() => setWheelRotation(268)}
             style={{
-              background:outerColors.surprised,
+              background: outerColors.surprised,
             }}
           ></div>
         </div>
@@ -419,7 +429,7 @@ function Wheel({ updateEntries, colorCount, entryData }) {
             className="rotation-selector-happy"
             onMouseDown={() => setWheelRotation(325)}
             style={{
-              background:outerColors.happy,
+              background: outerColors.happy,
             }}
           ></div>
         </div>
