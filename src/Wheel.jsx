@@ -331,8 +331,13 @@ function Wheel({ updateEntries, colorCount, entryData }) {
       outerState,
       colorCount
     };
-    localStorage.setItem(time.toISOString(), JSON.stringify(savedState));
-    updateEntries()
+  
+    let entries = JSON.parse(localStorage.getItem('wheelEntries')) || {};
+  
+    entries[time] = savedState;
+  
+    localStorage.setItem('wheelEntries', JSON.stringify(entries));
+    updateEntries();
   }
 
   return (
