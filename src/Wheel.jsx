@@ -9,7 +9,6 @@ import "./Wheel.css";
 
 import React, { useState, useContext, useEffect } from "react";
 
-import { innerWords, middleWords, outerWords } from "./feelingsData";
 
 /**
  * Wheel
@@ -62,8 +61,8 @@ function Wheel({ updateEntries, colorCount, entryData }) {
   })
   const [middleColors, setMiddleColors] = useState(makeColors(outerColors))
   const [innerColors, setInnerColors] = useState(makeColors(middleColors))
-  const [currentAngle, setCurrentAngle] = useState(325);
-  const [innerState, setInnerState] = useState(entryData.innerState || [
+
+  const innerWords = [
     { feeling: "Happy", color: innerColors.happy, isSelected: false },
     { feeling: "Surprised", color: innerColors.surprised, isSelected: false },
     { feeling: "Bad", color: innerColors.bad, isSelected: false },
@@ -71,8 +70,9 @@ function Wheel({ updateEntries, colorCount, entryData }) {
     { feeling: "Angry", color: innerColors.angry, isSelected: false },
     { feeling: "Disgusted", color: innerColors.disgusted, isSelected: false },
     { feeling: "Sad", color: innerColors.sad, isSelected: false },
-  ]);
-  const [middleState, setMiddleState] = useState(entryData.middleState || [
+  ]
+
+  const middleWords = [
     { feeling: "Playful", color: middleColors.happy, isSelected: false },
     { feeling: "Content", color: middleColors.happy, isSelected: false },
     { feeling: "Interested", color: middleColors.happy, isSelected: false },
@@ -114,8 +114,9 @@ function Wheel({ updateEntries, colorCount, entryData }) {
     { feeling: "Dispair", color: middleColors.sad, isSelected: false },
     { feeling: "Vulnerable", color: middleColors.sad, isSelected: false },
     { feeling: "Lonely", color: middleColors.sad, isSelected: false },
-  ]);
-  const [outerState, setOuterState] = useState(entryData.outerState || [
+  ]
+
+  const outerWords = [
     { feeling: "Aroused", color: outerColors.happy, isSelected: false },
     { feeling: "Cheeky", color: outerColors.happy, isSelected: false },
     { feeling: "Free", color: outerColors.happy, isSelected: false },
@@ -198,16 +199,23 @@ function Wheel({ updateEntries, colorCount, entryData }) {
     { feeling: "Victimised", color: outerColors.sad, isSelected: false },
     { feeling: "Abandoned", color: outerColors.sad, isSelected: false },
     { feeling: "Isolated", color: outerColors.sad, isSelected: false },
-  ]);
+  ]
+  
+  const [currentAngle, setCurrentAngle] = useState(325);
+  const [innerState, setInnerState] = useState(entryData.innerState || innerWords);
+  const [middleState, setMiddleState] = useState(entryData.middleState || middleWords);
+  const [outerState, setOuterState] = useState(entryData.outerState || outerWords);
 
   const counter = useContext(journalContext);
 
   console.log("what is innerState", innerState)
-
+  console.log("what is entry data", entryData)
   useEffect(() => {
-    setInnerState(entryData.innerState || innerWords);
-    setMiddleState(entryData.middleState || middleWords);
-    setOuterState(entryData.outerState || outerWords);
+    if(Object.keys(entryData).length !== 0){
+    setInnerState(entryData.innerState);
+    setMiddleState(entryData.middleState);
+    setOuterState(entryData.outerState);
+    }
   }, [entryData]);
 
   function setWheelRotation(newAngle) {
