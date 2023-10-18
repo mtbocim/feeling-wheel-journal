@@ -1,10 +1,10 @@
 .InnerRing .Feeling {
   width: 5vw;
   height: 3vh;
-  z-index: 2;
-  top: 15vh;
-  left: 15vh;
+  top: 26vh; /* (div height/2) - (height / 2) */
+  left: 27.5vh;
   mix-blend-mode: multiply;
+  transform-origin: center left;
   
 }
 

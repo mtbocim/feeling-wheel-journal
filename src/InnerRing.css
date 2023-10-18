@@ -2,8 +2,8 @@
 
 .InnerRing {
   position: absolute;
-  width: 30vh;
-  height: 30vh;
+  width: 55vh;
+  height: 55vh;
   border-radius: 50%;
   z-index: 10;
 }

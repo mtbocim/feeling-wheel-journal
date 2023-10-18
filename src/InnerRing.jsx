@@ -3,13 +3,13 @@ import Feeling from "./Feeling";
 import "./InnerRing.css";
 
 const initialAngles = [
-  "31deg",
-  "90deg",
-  "125deg",
-  "170deg",
+  "35deg",
+  "96deg",
+  "132deg",
+  "171deg",
   "235deg",
-  "285deg",
-  "330deg",
+  "290deg",
+  "329deg",
 ];
 
 function InnerRing({words, update}) {
