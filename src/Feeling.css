@@ -5,12 +5,13 @@
   left: 27.5vh;
   mix-blend-mode: multiply;
   transform-origin: center left;
+  z-index: 3;
   
 }
 
 .MiddleRing .Feeling {
   width: 10vw;
-  z-index: 1;
+  z-index: 2;
   top: 27.5vh;
   left: 27.5vh;
   box-shadow: 2px 2px black;
@@ -18,7 +19,7 @@
 
 .OuterRing .Feeling {
     width: 16vw;
-    z-index: 0;
+    z-index: 1;
     top: 27.5vh;
     left: 27.5vh; 
     box-shadow: 3px 3px rgb(136, 136, 136);
@@ -38,6 +39,6 @@
 
 .Feeling:hover:not(:active) {
   font-size: 2.25vh;
-  z-index: 15;
+  /* z-index: 15; */
   transform: scale(1.05);
 }

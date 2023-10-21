@@ -1,14 +1,13 @@
 import Feeling from "./Feeling";
 import "./OuterRing.css";
 
-function OuterRing({words, update}) {
-  
+function OuterRing({ words, update }) {
   function selectFeeling(feeling) {
-    update(feeling)
+    update(feeling);
   }
-  
+
   function calcRotation(i) {
-    return `${360 * (i / words.length)}deg`;
+    return `${360 * (i / words.length) - 2}deg`;
   }
 
   return (

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Wheel from "./Wheel";
-import Entries from "./Entries";
+// import Entries from "./Entries";
 import journalContext from "./journalContext";
 import Footer from "./Footer";
-
+import Journal from "./Journal";
 /**
  * App
  *
@@ -70,7 +70,8 @@ function App() {
     <journalContext.Provider value={counter}>
       <div className="App">
         <Wheel entryData={entryData} updateEntries={updateEntries} colorCount={colorCount} />
-        <Entries entries={entries} loadEntry={loadEntry} />
+        {/* <Entries entries={entries} loadEntry={loadEntry} /> */}
+        <Journal entries={entries} loadEntry={loadEntry} />
         <Footer />
       </div>
     </journalContext.Provider>
